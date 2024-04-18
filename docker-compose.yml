@@ -1,4 +1,16 @@
-FROM ubuntu:latest
-LABEL authors="islam"
+services:
+  etg-db:
+    image: 'postgres:14.11'
+    container_name: 'etelegramDB'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=etg
+      - POSTGRES_PASSWORD=purple
+      - POSTGRES_DB=etgDB
+    restart: always
+    volumes:
+      - nyos_db_data:/var/lib/postgresql/data
 
-ENTRYPOINT ["top", "-b"]
+volumes:
+  nyos_db_data:

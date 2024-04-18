@@ -1,1 +1,17 @@
-spring.application.name=etg-bus
+spring:
+  application:
+    name: etg-bus
+
+
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/etgDB}
+    username: ${DATASOURCE_USERNAME:etg}
+    password: ${DATASOURCE_PASSWORD:purple}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
